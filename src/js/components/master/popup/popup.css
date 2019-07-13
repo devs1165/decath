@@ -1,0 +1,26 @@
+.popup-main-container{
+    position: fixed;
+    background: rgba(0,0,0,0.4);
+    z-index: 9;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.close-popup-icon{
+    font-size: 30px;
+    font-weight: lighter;
+    color:#fff;
+    cursor: pointer;
+    margin: 5% 5% 0% 0%;
+}
+.close-popup-icon:hover{
+    color: #ff5d5d;
+}
+.popup-wrapper{
+    background: #fff;
+    box-shadow: 0px 0px 20px 2px #ccc
+}
+.confirmation-text{
+    font-size: 22px;
+}
