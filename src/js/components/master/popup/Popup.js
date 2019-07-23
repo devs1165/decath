@@ -2,6 +2,8 @@ import React from 'react'
 import './popup.css'
 import { editPostsById, deletePostsById } from '../../../actions/blogAction'
 import connect from 'redux-connect-decorator';
+
+
 @connect((store) => {
     return {
         edit: store.blog.edit,
@@ -54,7 +56,8 @@ export default class Popup extends React.Component {
     deletePost() {
         this.props.dispatch(deletePostsById(this.props.value))
     }
-
+    
+  
     render() {
         if (this.props.popType === "edit") {
             return (

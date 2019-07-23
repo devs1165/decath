@@ -1,6 +1,7 @@
 import React from 'react'
 import './card.css'
 import Popup from '../popup/Popup'
+import Confirmation from '../popup/Confirmation'
 
 export default class Card extends React.Component {
     constructor(props) {
@@ -8,8 +9,13 @@ export default class Card extends React.Component {
         this.state = {
             popup: false,
             poptype: '',
-            value: {}
+            value: {},
+            confirmation:false
         }
+        this.openToast = this.openToast.bind(this);
+        this.closeToast = this.closeToast.bind(this);
+        this.toastTimer = this.toastTimer.bind(this);
+
     }
 
     openPostPopup(type, val) {
@@ -22,9 +28,34 @@ export default class Card extends React.Component {
 
     closePostPopup() {
         this.setState({
-            popup: false
+            popup: false,
+            confirmation:true,
+        })
+        this.toastTimer()
+    }
+    
+    openToast(){
+        this.setState({
+            confirmation:true,
         })
     }
+
+    closeToast(){
+        this.setState({
+            confirmation:false,
+            poptype: '',
+
+        })
+    }
+    toastTimer(){
+        setTimeout(() => {
+            this.setState({
+                confirmation:false,
+                poptype: '',
+            })
+        }, 3000);
+    }
+
 
 
     render() {
@@ -53,6 +84,14 @@ export default class Card extends React.Component {
                             value={this.state.value}
                         />
                         : null
+                }
+                {
+                    (this.state.confirmation)?
+                        <Confirmation
+                            close = {this.closeToast.bind(this)}
+                            type = {this.state.poptype}
+                        />:null
+
                 }
             </React.Fragment>
         )

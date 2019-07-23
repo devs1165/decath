@@ -30,7 +30,6 @@ export function editPostsById(data){
 		xhttp.onreadystatechange = function(){
 			if(xhttp.readyState === 4 && xhttp.status === 200){
                 var resp = JSON.parse(xhttp.responseText);
-                console.log(resp)
                 dispatch({
 					type : "EDIT",
 					payload : resp

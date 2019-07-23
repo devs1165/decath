@@ -1,0 +1,17 @@
+.toast-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100px;
+    width: 275px;
+    color: #fff;
+    font-size: 20px;
+    z-index: 9;
+}
+.delete {
+    background: #DC3545;
+}
+.edit{
+    background: #28A745;
+    
+}
